@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Entry;
+use App\Models\Entry;
 
 class EntryController extends Controller
 {
