@@ -9,7 +9,6 @@ class EntryController extends Controller
 {
     public function index()
     {   //投稿一覧画面表示
-        dd(Entry::all());
 
         $item_list = Entry::all();
 
@@ -18,9 +17,11 @@ class EntryController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {   //投稿処理
-        echo "create";
+        $input = $request->only('author', 'title', 'body');
+
+        dd($input);
     }
 
     
