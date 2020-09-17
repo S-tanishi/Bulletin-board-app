@@ -1,4 +1,4 @@
-<form methot="post" action="{{ url(/create) }}">
+<form method="post" action="{{ url('/create') }}">
   @csrf 
 
   <div>
