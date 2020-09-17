@@ -10,7 +10,8 @@ class EntryController extends Controller
     public function index()
     {   //投稿一覧画面表示
 
-        $item_list = Entry::all();
+        $item_list = Entry::orderBy("id", "desc")
+          ->paginate(10);
 
         return view("list", [
             "item_list" => $item_list
