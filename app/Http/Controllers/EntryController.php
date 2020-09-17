@@ -21,7 +21,13 @@ class EntryController extends Controller
     {   //投稿処理
         $input = $request->only('author', 'title', 'body');
 
-        dd($input);
+        $entry = new Entry();
+        $entry->author = $input["author"];
+        $entry->title = $input["title"];
+        $entry->body = $input["body"];
+        $entry->save();
+
+        return redirect('/');
     }
 
     
