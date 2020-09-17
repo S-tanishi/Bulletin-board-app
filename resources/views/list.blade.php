@@ -5,9 +5,9 @@
 
 @foreach ($item_list as $item)
 <div class="entry">
-  <h5>{{ $item->title }}</h5>
+  <h5>{{ $item->title }} by {{ $item->author }}</h5>
   <div>
-    {{ $item->body }}
+    {{!! nl2br(e($item->body)) }}
   </div>
 </div>
 @endforeach
