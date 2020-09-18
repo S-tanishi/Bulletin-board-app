@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entry;
+use Dotenv\Validator;
 
 class EntryController extends Controller
 {
@@ -21,6 +22,14 @@ class EntryController extends Controller
     public function create(Request $request)
     {   //投稿処理
         $input = $request->only('author', 'title', 'body');
+
+        $validator = Validator::make($input, [
+            'author' => 'required|string|max:30',
+            'title' => 'required|string|max:30',
+            'body' => 'required|string|max:100'
+        ]);
+
+        
 
         $entry = new Entry();
         $entry->author = $input["author"];
