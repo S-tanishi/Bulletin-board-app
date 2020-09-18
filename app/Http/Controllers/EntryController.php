@@ -29,8 +29,14 @@ class EntryController extends Controller
             'body' => 'required|string|max:100'
         ]);
 
-        
+        //バリデーション失敗
+        if($validator->fails())
+        {
+            return redirect('/')
+            ->withErrors($validator);
+        }
 
+        //バリデーション成功
         $entry = new Entry();
         $entry->author = $input["author"];
         $entry->title = $input["title"];
